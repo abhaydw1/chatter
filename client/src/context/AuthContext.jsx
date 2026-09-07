@@ -8,6 +8,10 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Ping the backend on mount to wake it up (Render free tier sleeps after inactivity).
+  // This runs silently in the background so the backend is warm when the user submits the form.
+  useEffect(() => { api.get('/health').catch(() => {}); }, []);
+
   // Restore session from localStorage on mount
   useEffect(() => {
     const token = localStorage.getItem('chatter_token');
