@@ -11,7 +11,8 @@ let socket = null;
 export function initSocket(token) {
   if (socket) socket.disconnect();
 
-  socket = io('http://localhost:5000', {
+  const serverUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  socket = io(serverUrl, {
     auth: { token },
     reconnectionAttempts: 5,
     reconnectionDelay: 1000,

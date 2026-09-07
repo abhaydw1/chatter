@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Real-time multi-room chat application",
   "scripts": {
+    "start": "node server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server/index.js",
     "client": "npm --prefix client run dev",
