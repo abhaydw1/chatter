@@ -1,6 +1,11 @@
 ﻿# 💬 Chatter — Real-Time Multi-Room Chat Application
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-chatter--ten--mocha.vercel.app-blue?style=for-the-badge&logo=vercel)](https://chatter-ten-mocha.vercel.app/)
+[![Tech Stack](https://img.shields.io/badge/Stack-React%2018%20%7C%20Node.js%20%7C%20Socket.IO%20%7C%20PostgreSQL-green?style=for-the-badge)](https://chatter-ten-mocha.vercel.app/)
+
 > A full-stack real-time chat application demonstrating production-level WebSocket messaging, JWT authentication, normalized relational schemas, and multi-tab safe presence tracking.
+
+🌐 **Live Demo**: [https://chatter-ten-mocha.vercel.app/](https://chatter-ten-mocha.vercel.app/)
 
 ---
 
