@@ -43,6 +43,9 @@ initSocket(io);
 // ─── Start ────────────────────────────────────────────────────────────────────
 const PORT = parseInt(process.env.PORT || '5000', 10);
 httpServer.listen(PORT, () => {
-  console.log(`[Server] 🚀 Chatter API listening on http://localhost:${PORT}`);
-  console.log(`[Server] 🌐 Accepting connections from ${corsOptions.origin}`);
+  const corsMode = process.env.NODE_ENV === 'production'
+    ? 'all origins (production)'
+    : (process.env.CLIENT_URL || 'http://localhost:5173');
+  console.log(`[Server] 🚀 Chatter API listening on port ${PORT}`);
+  console.log(`[Server] 🌐 CORS: accepting from ${corsMode}`);
 });
