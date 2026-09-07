@@ -12,17 +12,12 @@ const app = express();
 const httpServer = http.createServer(app);
 
 // ─── CORS ────────────────────────────────────────────────────────────────────
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
-  .split(',')
-  .map((o) => o.trim());
-
+// In production: mirror any origin back (works with credentials, unlike '*')
+// In development: restrict to CLIENT_URL / localhost
 const corsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests with no origin (e.g. mobile apps, curl, Render health checks)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) return callback(null, true);
-    callback(new Error(`CORS blocked: ${origin}`));
-  },
+  origin: process.env.NODE_ENV === 'production'
+    ? true
+    : (process.env.CLIENT_URL || 'http://localhost:5173'),
   credentials: true,
 };
 app.use(cors(corsOptions));
