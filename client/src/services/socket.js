@@ -16,7 +16,7 @@ export function initSocket(token) {
     auth: { token },
     reconnectionAttempts: 5,
     reconnectionDelay: 1000,
-    transports: ['websocket'],
+    transports: ['polling', 'websocket'],
   });
 
   socket.on('connect', () => console.log('[Socket] Connected:', socket.id));
